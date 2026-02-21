@@ -1,0 +1,213 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  # AllowlistManager Contract
+  - kind: ethereum
+    name: AllowlistManager
+    network: base-sepolia
+    source:
+      address: "0x3b3e3ee79bf8ce7fdd144d93f275e765aeb1be48"
+      abi: AllowlistManager
+      startBlock: 31991783
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - AllowedGuard
+        - AllowedStrategy
+        - AllowedToken
+      abis:
+        - name: AllowlistManager
+          file: ./abis/AllowlistManager.json
+      eventHandlers:
+        - event: GuardAllowed(indexed address,indexed address)
+          handler: handleGuardAllowed
+        - event: GuardDisallowed(indexed address,indexed address)
+          handler: handleGuardDisallowed
+        - event: StrategyAllowed(indexed address,indexed address)
+          handler: handleStrategyAllowed
+        - event: StrategyDisallowed(indexed address,indexed address)
+          handler: handleStrategyDisallowed
+        - event: TokenAllowed(indexed address,indexed address)
+          handler: handleTokenAllowed
+        - event: TokenDisallowed(indexed address,indexed address)
+          handler: handleTokenDisallowed
+      file: ./src/allowlist-manager.ts
+
+  # TaskManager Contract
+  - kind: ethereum
+    name: TaskManager
+    network: base-sepolia
+    source:
+      address: "0x5fc6133a49be7b8395e2a0978b6b06b1ed72f424"
+      abi: TaskManager
+      startBlock: 31991815
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Task
+        - User
+        - TaskEvent
+        - DailyStatistic
+        - GlobalStatistic
+      abis:
+        - name: TaskManager
+          file: ./abis/TaskManager.json
+      eventHandlers:
+        - event: TaskCreated(indexed uint256,indexed address,string,string,uint256,uint256,address)
+          handler: handleTaskCreated
+        - event: TaskPublished(indexed uint256,uint256)
+          handler: handleTaskPublished
+        - event: TaskCompleted(indexed uint256,uint256)
+          handler: handleTaskCompleted
+        - event: TaskExpiredEvent(indexed uint256)
+          handler: handleTaskExpired
+        - event: TaskCancelled(indexed uint256,string)
+          handler: handleTaskCancelled
+        - event: TaskGuardsUpdated(indexed uint256,address,address,address)
+          handler: handleTaskGuardsUpdated
+      file: ./src/task-manager.ts
+
+  # SubmissionManager Contract
+  - kind: ethereum
+    name: SubmissionManager
+    network: base-sepolia
+    source:
+      address: "0xa770ffD8ce8f23D47b6E65E63280953Fd37dA3c2"
+      abi: SubmissionManager
+      startBlock: 31991842
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Submission
+        - SubmissionVersion
+        - Review
+        - User
+        - Task
+        - SubmissionEvent
+        - RewardDistribution
+        - DailyStatistic
+        - GlobalStatistic
+      abis:
+        - name: SubmissionManager
+          file: ./abis/SubmissionManager.json
+        - name: TaskManager
+          file: ./abis/TaskManager.json
+      eventHandlers:
+        - event: SubmissionCreated(indexed uint256,indexed uint256,indexed address,string,uint256)
+          handler: handleSubmissionCreated
+        - event: SubmissionUpdated(indexed uint256,string,uint256,uint256)
+          handler: handleSubmissionUpdated
+        - event: SubmissionStatusChanged(indexed uint256,uint8,uint8,string)
+          handler: handleSubmissionStatusChanged
+        - event: SubmissionAdopted(indexed uint256,indexed uint256,address,uint256)
+          handler: handleSubmissionAdopted
+        - event: ReviewSubmitted(indexed uint256,indexed uint256,indexed address,uint8,string)
+          handler: handleReviewSubmitted
+      file: ./src/submission-manager.ts
+
+  # ReputationManager Contract
+  - kind: ethereum
+    name: ReputationManager
+    network: base-sepolia
+    source:
+      address: "0x993966471695dfe32fd263d0c255d921fb9d02a6"
+      abi: ReputationManager
+      startBlock: 31991801
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - CategoryScore
+        - UserEvent
+        - DailyStatistic
+        - GlobalStatistic
+      abis:
+        - name: ReputationManager
+          file: ./abis/ReputationManager.json
+      eventHandlers:
+        - event: UserInitialized(indexed address,uint256)
+          handler: handleUserInitialized
+        - event: ReputationChanged(indexed address,int256,uint256,string)
+          handler: handleReputationChanged
+        - event: UserStatusChanged(indexed address,uint8,uint8)
+          handler: handleUserStatusChanged
+        - event: UserStaked(indexed address,uint256,address)
+          handler: handleUserStaked
+        - event: UnstakeRequested(indexed address,uint256)
+          handler: handleUnstakeRequested
+        - event: UserUnstaked(indexed address,uint256,address)
+          handler: handleUserUnstaked
+        - event: CategoryScoreClaimed(indexed address,string,uint256,uint256)
+          handler: handleCategoryScoreClaimed
+      file: ./src/reputation-manager.ts
+
+  # ArbitrationManager Contract
+  - kind: ethereum
+    name: ArbitrationManager
+    network: base-sepolia
+    source:
+      address: "0xdf2e26ee889eb3b63be42b36dd619fe306f70cb9"
+      abi: ArbitrationManager
+      startBlock: 31991869
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Arbitration
+        - User
+        - DailyStatistic
+        - GlobalStatistic
+      abis:
+        - name: ArbitrationManager
+          file: ./abis/ArbitrationManager.json
+      eventHandlers:
+        - event: ArbitrationRequested(indexed uint256,indexed address,uint8,uint256,uint256,string)
+          handler: handleArbitrationRequested
+        - event: ArbitrationResolved(indexed uint256,indexed address,uint8,string,uint256)
+          handler: handleArbitrationResolved
+        - event: ArbitrationFeeRefunded(indexed uint256,indexed address,uint256)
+          handler: handleArbitrationFeeRefunded
+        - event: ArbitrationFeeForfeited(indexed uint256,uint256)
+          handler: handleArbitrationFeeForfeited
+      file: ./src/arbitration-manager.ts
+
+  # HermisSBT Contract
+  - kind: ethereum
+    name: HermisSBT
+    network: base-sepolia
+    source:
+      address: "0xd44d9d61c36f2fb0b0095da91b9541bfefd94749"
+      abi: HermisSBT
+      startBlock: 31991744
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - CategoryScore
+      abis:
+        - name: HermisSBT
+          file: ./abis/HermisSBT.json
+      eventHandlers:
+        - event: SBTMinted(indexed address,indexed uint256)
+          handler: handleSBTMinted
+        - event: ReputationUpdated(indexed address,indexed uint256,uint256,uint8)
+          handler: handleReputationUpdatedSBT
+        - event: CategoryScoreUpdated(indexed address,indexed uint256,string,uint256)
+          handler: handleCategoryScoreUpdatedSBT
+        - event: StakeAmountUpdated(indexed address,indexed uint256,uint256)
+          handler: handleStakeAmountUpdatedSBT
+      file: ./src/hermis-sbt.ts

@@ -1,0 +1,319 @@
+# Task Management
+type Task @entity(immutable: false) {
+  id: ID!
+  taskId: BigInt!
+  publisher: User!
+  title: String!
+  description: String!
+  requirements: String!
+  category: String!
+  deadline: BigInt!
+  reward: BigInt!
+  rewardToken: Bytes!
+  status: TaskStatus!
+  createdAt: BigInt!
+  publishedAt: BigInt
+  adoptedSubmissionId: BigInt
+  submissionGuard: Bytes
+  reviewGuard: Bytes
+  adoptionStrategy: Bytes
+
+  # Relations
+  submissions: [Submission!]! @derivedFrom(field: "task")
+
+  # Metrics
+  submissionCount: BigInt!
+  activeSubmissionCount: BigInt!
+  reviewCount: BigInt!
+
+  # Timestamps
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+enum TaskStatus {
+  DRAFT
+  PUBLISHED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+  EXPIRED
+}
+
+# Submission Management
+type Submission @entity(immutable: false) {
+  id: ID!
+  submissionId: BigInt!
+  task: Task!
+  submitter: User!
+  contentHash: String!
+  version: BigInt!
+  status: SubmissionStatus!
+  approveCount: BigInt!
+  rejectCount: BigInt!
+  submittedAt: BigInt!
+  lastUpdatedAt: BigInt!
+  adoptedAt: BigInt
+
+  # Relations
+  reviews: [Review!]! @derivedFrom(field: "submission")
+  versions: [SubmissionVersion!]! @derivedFrom(field: "submission")
+
+  # Timestamps
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+enum SubmissionStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  NORMAL
+  ADOPTED
+  REMOVED
+}
+
+type SubmissionVersion @entity(immutable: true) {
+  id: ID!
+  submission: Submission!
+  version: BigInt!
+  contentHash: String!
+  createdAt: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Review @entity(immutable: true) {
+  id: ID!
+  reviewId: BigInt!
+  submission: Submission!
+  reviewer: User!
+  outcome: ReviewOutcome!
+  reason: String!
+  reviewedAt: BigInt!
+
+  # Timestamps
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+enum ReviewOutcome {
+  APPROVE
+  REJECT
+}
+
+# User Management
+type User @entity(immutable: false) {
+  id: ID!
+  address: Bytes!
+  reputation: BigInt!
+  status: UserStatus!
+  stakedAmount: BigInt!
+  initializedAt: BigInt!
+  lastActivityAt: BigInt!
+
+  # Relations
+  publishedTasks: [Task!]! @derivedFrom(field: "publisher")
+  submissions: [Submission!]! @derivedFrom(field: "submitter")
+  reviews: [Review!]! @derivedFrom(field: "reviewer")
+  categoryScores: [CategoryScore!]! @derivedFrom(field: "user")
+  arbitrations: [Arbitration!]! @derivedFrom(field: "requester")
+
+  # Statistics
+  taskCount: BigInt!
+  submissionCount: BigInt!
+  reviewCount: BigInt!
+  adoptedSubmissionCount: BigInt!
+  accurateReviewCount: BigInt!
+
+  # SBT Token
+  sbtTokenId: BigInt
+}
+
+enum UserStatus {
+  UNINITIALIZED
+  NORMAL
+  AT_RISK
+  BLACKLISTED
+}
+
+type CategoryScore @entity(immutable: false) {
+  id: ID!
+  user: User!
+  category: String!
+  score: BigInt!
+  pendingScore: BigInt!
+  lastClaimAt: BigInt!
+
+  # Timestamps
+  lastUpdatedAt: BigInt!
+}
+
+# Arbitration
+type Arbitration @entity(immutable: false) {
+  id: ID!
+  arbitrationId: BigInt!
+  requester: User!
+  arbitrationType: ArbitrationType!
+  targetId: BigInt!
+  evidence: String!
+  feeAmount: BigInt!
+  feeToken: Bytes
+  status: ArbitrationStatus!
+  resolution: String
+  resolvedBy: Bytes
+  requestedAt: BigInt!
+  resolvedAt: BigInt
+
+  # Timestamps
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+enum ArbitrationType {
+  USER_REPUTATION
+  SUBMISSION_STATUS
+}
+
+enum ArbitrationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  DISMISSED
+}
+
+# Treasury and Rewards
+type RewardDistribution @entity(immutable: true) {
+  id: ID!
+  task: Task!
+  submission: Submission!
+  totalReward: BigInt!
+  creatorShare: BigInt!
+  reviewerShare: BigInt!
+  platformShare: BigInt!
+  publisherRefund: BigInt!
+  processedAt: BigInt!
+
+  # Timestamps
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+# Analytics and Statistics
+type DailyStatistic @entity(immutable: false) {
+  id: ID!
+  date: BigInt!
+
+  # Task metrics
+  tasksCreated: BigInt!
+  tasksPublished: BigInt!
+  tasksCompleted: BigInt!
+  tasksCancelled: BigInt!
+  tasksExpired: BigInt!
+
+  # Submission metrics
+  submissionsCreated: BigInt!
+  submissionsAdopted: BigInt!
+  submissionsRemoved: BigInt!
+
+  # Review metrics
+  reviewsSubmitted: BigInt!
+
+  # User metrics
+  usersRegistered: BigInt!
+  activeUsers: BigInt!
+
+  # Financial metrics
+  totalRewardsDistributed: BigInt!
+  totalFeesCollected: BigInt!
+}
+
+type GlobalStatistic @entity(immutable: false) {
+  id: ID!
+
+  # Totals
+  totalTasks: BigInt!
+  totalSubmissions: BigInt!
+  totalReviews: BigInt!
+  totalUsers: BigInt!
+  totalArbitrations: BigInt!
+
+  # Current metrics
+  activeTasks: BigInt!
+  activeSubmissions: BigInt!
+  pendingArbitrations: BigInt!
+
+  # Financial
+  totalRewardsDistributed: BigInt!
+  totalFeesCollected: BigInt!
+
+  # Last updated
+  lastUpdated: BigInt!
+}
+
+# Events for debugging and analytics
+type TaskEvent @entity(immutable: true) {
+  id: ID!
+  type: String!
+  task: Task!
+  data: String
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}
+
+type SubmissionEvent @entity(immutable: true) {
+  id: ID!
+  type: String!
+  submission: Submission!
+  data: String
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}
+
+type UserEvent @entity(immutable: true) {
+  id: ID!
+  type: String!
+  user: User!
+  data: String
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}
+
+# Allowlist Management
+type AllowedGuard @entity(immutable: false) {
+  id: ID!
+  address: Bytes!
+  isAllowed: Boolean!
+  addedAt: BigInt
+  removedAt: BigInt
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}
+
+type AllowedStrategy @entity(immutable: false) {
+  id: ID!
+  address: Bytes!
+  isAllowed: Boolean!
+  addedAt: BigInt
+  removedAt: BigInt
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}
+
+type AllowedToken @entity(immutable: false) {
+  id: ID!
+  address: Bytes!
+  isAllowed: Boolean!
+  addedAt: BigInt
+  removedAt: BigInt
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}

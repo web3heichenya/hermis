@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #070814;
+  --foreground: #f6f7ff;
+  --muted: #101628;
+  --muted-foreground: #8c94c5;
+  --card: #0c1224;
+  --card-foreground: #eef0ff;
+  --primary: #7c5cff;
+  --primary-foreground: #f5f4ff;
+  --secondary: #1b2442;
+  --secondary-foreground: #d6ddff;
+  --accent: #1a2f6d;
+  --accent-foreground: #eaf2ff;
+  --border: #1c2545;
+  --input: #1c2545;
+  --ring: #9f8cff;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #fff7f7;
+  --radius: 26px;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #f6f7ff;
+  --foreground: #070814;
+  --muted: #e6e8f6;
+  --muted-foreground: #444b75;
+  --card: #ffffff;
+  --card-foreground: #16172a;
+  --primary: #5840ff;
+  --primary-foreground: #fdfcff;
+  --secondary: #f0f2ff;
+  --secondary-foreground: #232859;
+  --accent: #e4e9ff;
+  --accent-foreground: #1f2c5c;
+  --border: #d9ddf4;
+  --input: #d9ddf4;
+  --ring: #6a58ff;
+  --destructive: #f04444;
+  --destructive-foreground: #fff2f2;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+    --background: #f6f7ff;
+    --foreground: #070814;
+    --muted: #e6e8f6;
+    --muted-foreground: #444b75;
+    --card: #ffffff;
+    --card-foreground: #16172a;
+    --primary: #5840ff;
+    --primary-foreground: #fdfcff;
+    --secondary: #f0f2ff;
+    --secondary-foreground: #232859;
+    --accent: #e4e9ff;
+    --accent-foreground: #1f2c5c;
+    --border: #d9ddf4;
+    --input: #d9ddf4;
+    --ring: #6a58ff;
+    --destructive: #f04444;
+    --destructive-foreground: #fff2f2;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --radius-xl: var(--radius);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 20%, #1b1f46 0%, transparent 55%),
+    radial-gradient(circle at 80% 10%, #2a2f75 0%, transparent 45%),
+    radial-gradient(circle at 50% 100%, #131735 0%, transparent 60%), var(--background);
+  color: var(--foreground);
+  font-family:
+    var(--font-geist-sans),
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6763ff, #ab70ff);
+  border-radius: 999px;
+}
+
+:root:has([data-prefers-reduced-motion="true"]) * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

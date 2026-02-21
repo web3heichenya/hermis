@@ -1,0 +1,858 @@
+{
+  "app": {
+    "name": "Hermis Atlas",
+    "tagline": "链上信誉驱动的协作引擎"
+  },
+  "nav": {
+    "dashboard": "仪表盘",
+    "tasks": "任务",
+    "review": "评审",
+    "market": "市场",
+    "profile": "我的",
+    "collapse": "收起",
+    "expand": "展开"
+  },
+  "header": {
+    "theme": {
+      "light": "亮色模式",
+      "dark": "暗色模式",
+      "short": {
+        "light": "亮色",
+        "dark": "暗色"
+      },
+      "toggle": "切换主题"
+    },
+    "language": {
+      "label": "选择语言",
+      "options": {
+        "en": "英语",
+        "zh": "中文"
+      },
+      "short": {
+        "en": "EN",
+        "zh": "中文"
+      }
+    },
+    "wallet": {
+      "connect": "连接钱包"
+    },
+    "user": {
+      "profile": "个人页面",
+      "logout": "退出登录",
+      "manageWallet": "钱包设置"
+    }
+  },
+  "console": {
+    "title": "管理控制台",
+    "subtitle": "维护守卫、策略与奖励 Token 的允许列表。",
+    "allowlist": {
+      "title": "Allowlist 管理",
+      "subtitle": "只有被批准的合约才能在任务配置中被引用。",
+      "helper": "输入合约地址以加入允许名单。移除后将阻止新任务引用该合约，已有任务不受影响。",
+      "networkWarning": "请使用具备管理员权限的钱包并切换至 {network} 网络后再操作。",
+      "actions": {
+        "addLabel": "新增合约",
+        "allow": "允许",
+        "remove": "禁用",
+        "pending": "处理中…"
+      },
+      "sections": {
+        "guards": {
+          "title": "守卫合约",
+          "subtitle": "允许用于任务提交/评审的守卫控制器。"
+        },
+        "strategies": {
+          "title": "策略合约",
+          "subtitle": "任务可引用的采纳或奖励策略。"
+        },
+        "tokens": {
+          "title": "奖励代币",
+          "subtitle": "可用于奖励发放的 ERC20 或原生资产。"
+        }
+      },
+      "empty": "尚未允许任何合约，请先添加。"
+    }
+  },
+  "landing": {
+    "hero": {
+      "label": "Hermis Atlas",
+      "headline": {
+        "top": "Web3 众包",
+        "prefix": "面向",
+        "variants": {
+          "one": "全球建设者",
+          "two": "可信评审",
+          "three": "自治团队"
+        }
+      },
+      "subheading": "任务发布、创作、评审与仲裁在一套透明可组合的守卫策略下运行。",
+      "cta": "进入应用"
+    },
+    "features": {
+      "title": "为无信任协作而生",
+      "subtitle": "可组合的守卫策略、透明的信誉体系与自动化流程保持贡献者持续投入。",
+      "items": {
+        "modularity": {
+          "title": "可组合的守卫网络",
+          "description": "自由组合提交、评审与仲裁守卫模块，为不同任务定制参与规则。"
+        },
+        "reputation": {
+          "title": "信誉即信号",
+          "description": "SBT 积分、质押水位与类别标签，让每位贡献者的履历都可验证。"
+        },
+        "automation": {
+          "title": "自治任务引擎",
+          "description": "策略合约自动推进截止、奖励与升级流程，团队专注于成果交付。"
+        }
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "欢迎回来",
+    "kpi": {
+      "activeTasks": "活动任务",
+      "pendingReviews": "待评审",
+      "upcomingDeadlines": "临近截止"
+    },
+    "metrics": {
+      "totalTasks": "任务总数",
+      "totalSubmissions": "提交总数",
+      "totalUsers": "贡献者总数",
+      "activeTasks": "活跃任务",
+      "pendingArbitrations": "待仲裁",
+      "totalRewards": "已发放奖励"
+    },
+    "activity": {
+      "tasksTitle": "热门机会",
+      "viewAll": "查看全部",
+      "emptyTasks": "暂无可用任务",
+      "uncategorized": "未分类"
+    },
+    "shortcuts": {
+      "createTask": "创建任务",
+      "claimRewards": "领取奖励",
+      "submitAppeal": "提交仲裁",
+      "switchLang": "切换语言"
+    },
+    "notifications": "通知",
+    "reviewQueuesEmpty": "暂无待评审提交",
+    "reviewQueuesNoGuard": "未配置守卫",
+    "pendingRewardsLabel": "待领取奖励",
+    "pendingRewardsSubtitle": "最近同步",
+    "shortcutsTitle": "快捷入口",
+    "reviewQueuesSubtitle": "匹配守卫资格的优先任务",
+    "kpiTrend": "{trend}%"
+  },
+  "tasks": {
+    "title": "任务广场",
+    "subtitle": "浏览链上任务、守卫要求与奖励详情。",
+    "filters": {
+      "searchPlaceholder": "搜索任务",
+      "status": "状态",
+      "category": "类别",
+      "reward": "奖励",
+      "guards": "守卫"
+    },
+    "create": "创建任务"
+  },
+  "task": {
+    "guards": "守卫要求",
+    "submissionGuard": "提交守卫",
+    "reviewGuard": "审核守卫",
+    "strategy": "采纳策略",
+    "stats": "提交统计",
+    "submissions": "提交列表",
+    "actions": {
+      "submit": "提交作品",
+      "withdraw": "取回资金"
+    },
+    "detail": {
+      "rewardLabel": "赏金",
+      "deadlineLabel": "截止时间",
+      "meta": "实时提交活动",
+      "minReviews": "最少评审数",
+      "adoptRatio": "采纳占比",
+      "autoAdopt": "自动采纳",
+      "statsTotal": "总数",
+      "statsActive": "进行中",
+      "statsAdopted": "已采纳",
+      "statsRemoved": "已移除",
+      "requirements": "任务要求",
+      "requirementsEmpty": "暂无额外要求。",
+      "pendingTitle": "任务正在同步",
+      "pendingHeadline": "任务 #{{id}}",
+      "pendingDescription": "新发布的任务需要一些时间完成索引，请稍后刷新查看。",
+      "pendingRefresh": "刷新",
+      "pendingBack": "返回任务列表",
+      "rejectionRatio": "移除阈值",
+      "expirationLabel": "过期窗口",
+      "strategyLoading": "正在读取链上策略配置…",
+      "strategyError": "无法加载策略：{{message}}",
+      "strategyFallback": "当前展示部署默认参数，稍候即可同步链上数据。",
+      "strategyApprovalSummary": "{{threshold}}% · 至少 {{count}} 次通过",
+      "strategyRejectionSummary": "{{threshold}}% · 至少 {{count}} 次拒绝",
+      "strategyExpirationSummary": "{{hours}} 小时未决策将过期",
+      "strategyAutoEnabled": "若 {{hours}} 小时内无人评审，将自动采纳。",
+      "strategyAutoDisabled": "未启用自动采纳，需人工评审。"
+    },
+    "guard": {
+      "reputation": "信誉分 ≥ {value}",
+      "stake": "质押 ≥ {value} ETH",
+      "categories": "类别要求：{categories}",
+      "allowlist": "白名单：{addresses}",
+      "categoryScore": "类别积分 ≥ {value}",
+      "requiredCategory": "必需类别：{category}",
+      "minReviewCount": "最少评审数：{count}",
+      "minAccuracyRate": "准确率 ≥ {value}%",
+      "maxFailedSubmissions": "失败提交 ≤ {count} 次",
+      "minSuccessRate": "成功率 ≥ {value}%",
+      "addressLabel": "守卫地址",
+      "none": "未配置",
+      "open": "守卫开放——暂无额外限制。",
+      "loading": "正在加载守卫配置…",
+      "error": "无法加载守卫配置：{message}"
+    }
+  },
+  "review": {
+    "title": "评审控制台",
+    "subtitle": "精准评审提交，累积守卫信誉。",
+    "queues": "评审队列",
+    "accuracy": "准确率",
+    "history": "历史记录",
+    "cta": {
+      "startAuto": "启动自动分配",
+      "review": "去评审"
+    },
+    "metrics": {
+      "accuracy": "准确率",
+      "accuracyHint": "最近30次评审",
+      "disputes": "成功仲裁",
+      "disputesHint": "信誉提升 +42",
+      "rewards": "待结算奖励",
+      "rewardsHint": "等待结算"
+    },
+    "queueSubtitle": "选择与你守卫匹配的提交",
+    "sheet": {
+      "title": "提交评审",
+      "subtitle": "判断提交结果并说明理由。",
+      "outcome": "评审结果",
+      "approve": "通过",
+      "reject": "拒绝",
+      "reason": "评审理由",
+      "reasonPlaceholder": "请说明亮点、风险或违反规则的地方",
+      "strategyTitle": "采纳阈值提示",
+      "strategyLoading": "正在加载采纳策略…",
+      "strategyError": "无法加载策略：{message}",
+      "strategyEmpty": "暂无策略信息。",
+      "strategySummary": {
+        "minReviews": "至少需要 {value} 次评审才能决策。",
+        "approval": "采纳需 ≥ {value} 次通过（{threshold}%）。",
+        "rejection": "移除需 ≥ {value} 次拒绝（{threshold}%）。",
+        "expiration": "若 {hours} 小时内未决策将自动过期。",
+        "auto": "若 {hours} 小时内无人评审将自动采纳。"
+      },
+      "guardOpen": "审核守卫开放——任何人都可以参与。",
+      "guardConnect": "连接钱包以校验审核守卫权限。",
+      "guardNetwork": "切换到 {network} 以校验守卫权限。",
+      "guardPrompt": "打开弹窗以触发守卫校验。",
+      "guardLoading": "正在验证审核守卫要求…",
+      "guardError": "无法验证守卫：{message}",
+      "guardDenied": "未满足审核守卫要求。",
+      "guardReady": "守卫校验通过，您可以提交评审。",
+      "guardIdle": "守卫状态暂不可用，请稍后重试。",
+      "guardBlocked": "审核守卫拒绝了此次操作。",
+      "guardChecklist": "标准守卫",
+      "submit": "提交评审",
+      "disabled": "请在 {network} 上连接钱包后评审"
+    },
+    "tx": {
+      "reviewing": "正在向 SubmissionManager 提交评审…",
+      "success": "评审 #{reviewId} 已记录",
+      "error": "评审失败：{message}"
+    },
+    "filters": {
+      "all": "全部",
+      "submitted": "待提交",
+      "underReview": "审核中",
+      "under_review": "审核中"
+    }
+  },
+  "market": {
+    "title": "策略与奖励市场",
+    "subtitle": "浏览守卫策略、SBT 等级与激励池。",
+    "trendingTitle": "热门任务金库",
+    "sbtPerkLabel": "特权",
+    "sbtTiers": {
+      "atlas1": {
+        "name": "Atlas I",
+        "requirement": "信誉 ≥ 420",
+        "perks": ["获得提交守卫资格", "质押收益 +2%"]
+      },
+      "atlas2": {
+        "name": "Atlas II",
+        "requirement": "信誉 ≥ 620",
+        "perks": ["评审守卫优先级", "质押收益 +5%", "仲裁费用减免"]
+      },
+      "atlas3": {
+        "name": "Atlas III",
+        "requirement": "信誉 ≥ 820",
+        "perks": ["可发布守卫策略", "质押收益 +10%", "守卫上架权限"]
+      }
+    },
+    "publisher": "发布者 {address}",
+    "trend": "奖励趋势",
+    "rewardDistribution": "奖励分布",
+    "flow": {
+      "title": "奖励流向",
+      "subtitle": "展示锁定奖励与费用在角色间的流动情况。",
+      "contributors": "创作者",
+      "reviewers": "评审者"
+    },
+    "categoryLeaderboard": {
+      "title": "类别排行榜",
+      "subtitle": "按锁定奖励排序的热门任务类别。",
+      "count": "{{value}} 个任务",
+      "empty": "暂无类别数据。"
+    },
+    "guardHeatmap": "守卫要求热力图",
+    "heatmapEmpty": "暂无守卫数据",
+    "metrics": {
+      "totalRewards": "奖励总额",
+      "totalFees": "费用总额",
+      "adoptionRate": "采纳率"
+    }
+  },
+  "profile": {
+    "title": "身份资产",
+    "subtitle": "管理 SBT、质押与守卫配置。",
+    "sections": {
+      "reputation": "信誉概览",
+      "stake": "质押管理",
+      "categories": "类别积分",
+      "admin": "管理员工具",
+      "score": "评分",
+      "sbt": "SBT",
+      "staked": "已质押"
+    },
+    "actions": {
+      "stakeMore": "增加质押",
+      "unstake": "申请解押",
+      "openConsole": "打开控制台",
+      "initializeSbt": "初始化 SBT"
+    },
+    "states": {
+      "NORMAL": "正常",
+      "AT_RISK": "风险预警",
+      "BLACKLISTED": "黑名单",
+      "UNINITIALIZED": "未初始化"
+    },
+    "categoriesEmpty": "暂无类别积分记录",
+    "stake": {
+      "title": "增加质押额度",
+      "subtitle": "授权并存入质押代币以提升信誉权重。",
+      "amountLabel": "质押数量",
+      "helper": "质押资金在解押前会保持锁定。",
+      "disabled": "请在 {network} 上连接钱包后质押。",
+      "approving": "正在授权代币额度…",
+      "staking": "正在提交质押交易…",
+      "success": "质押交易已确认",
+      "error": "质押失败：{message}",
+      "submit": "确认质押",
+      "errors": {
+        "amount": "请输入有效数量"
+      }
+    },
+    "unstake": {
+      "title": "申请解押",
+      "subtitle": "发起解押流程以解锁质押资金。",
+      "helper": "解押将触发协议冷却期，请耐心等待。",
+      "disabled": "请在 {network} 上连接钱包后解押。",
+      "processing": "正在提交解押申请…",
+      "success": "解押申请已提交",
+      "error": "解押失败：{message}",
+      "submit": "提交申请"
+    },
+    "initialize": {
+      "pending": "正在初始化身份…",
+      "submitting": "初始化中…",
+      "success": "身份初始化成功",
+      "error": "初始化失败：{message}",
+      "network": "请切换到 {network} 进行初始化",
+      "accountMismatch": "请切换到匹配的地址后再初始化"
+    }
+  },
+  "prototype": {
+    "title": "Hermis Atlas 原型",
+    "subtitle": "单页串联所有核心界面，方便评审与沟通。",
+    "label": "页面"
+  },
+  "common": {
+    "status": {
+      "draft": "草稿",
+      "published": "发布",
+      "active": "活跃",
+      "completed": "完成",
+      "expired": "过期",
+      "cancelled": "取消",
+      "submitted": "已提交",
+      "underReview": "审核中",
+      "normal": "正常",
+      "adopted": "采纳",
+      "removed": "移除",
+      "pending": "待处理",
+      "approved": "已批准",
+      "rejected": "已拒绝",
+      "dismissed": "已驳回"
+    },
+    "actions": {
+      "reset": "重置",
+      "close": "关闭",
+      "refresh": "刷新"
+    },
+    "labels": {
+      "due": "剩余",
+      "days": "天",
+      "deadline": "截止时间"
+    },
+    "empty": {
+      "noTasks": "没有符合筛选条件的任务。",
+      "noSubmissions": "暂时没有提交。"
+    },
+    "loading": "加载中…"
+  },
+  "submission": {
+    "sheet": {
+      "title": "提交作品",
+      "subtitle": "提供 IPFS/Arweave 哈希或外部链接供评审查看。",
+      "contentLabel": "交付引用",
+      "contentPlaceholder": "ipfs://... 或 https://...",
+      "guardChecklist": "守卫核对清单",
+      "guardHint": "提交前请确认满足守卫要求。",
+      "guardOpen": "提交守卫开放——任何人都可以提交。",
+      "guardConnect": "连接钱包以校验提交守卫权限。",
+      "guardNetwork": "切换到 {network} 以校验守卫权限。",
+      "guardPrompt": "打开弹窗以触发守卫校验。",
+      "guardLoading": "正在验证提交守卫要求…",
+      "guardError": "无法验证守卫：{message}",
+      "guardDenied": "未满足提交守卫要求。",
+      "guardReady": "守卫校验通过，您可以提交作品。",
+      "guardIdle": "守卫状态暂不可用，请稍后重试。",
+      "guardBlocked": "提交守卫拒绝了此次操作。",
+      "submit": "提交作品",
+      "disabled": "请在 {network} 上连接钱包后提交"
+    },
+    "edit": {
+      "trigger": "更新提交",
+      "title": "更新作品引用",
+      "subtitle": "替换提交的内容哈希或外部链接，方便评审查看。",
+      "contentLabel": "新的作品引用",
+      "contentPlaceholder": "ipfs://... 或 https://...",
+      "submit": "保存更新",
+      "disabled": "请在 {network} 上连接钱包以更新",
+      "hint": "在提交被采纳或移除之前可随时更新。",
+      "guardOpen": "提交守卫开放——任何人都可以更新。",
+      "guardConnect": "连接钱包以校验守卫权限后再更新。",
+      "guardNetwork": "切换到 {network} 以重新校验守卫权限。",
+      "guardPrompt": "打开弹窗以触发守卫校验后再更新。",
+      "guardLoading": "正在验证提交守卫访问权限…",
+      "guardError": "无法验证守卫：{message}",
+      "guardDenied": "未满足提交守卫要求，无法更新。",
+      "guardReady": "守卫校验通过，您可以更新此提交。",
+      "guardIdle": "守卫状态暂不可用，请稍后再试。",
+      "guardBlocked": "提交守卫拒绝了此次更新操作。",
+      "tx": {
+        "submitting": "正在链上更新提交…",
+        "success": "提交已更新至版本 {version}",
+        "error": "更新失败：{message}"
+      }
+    },
+    "tx": {
+      "submitting": "正在向 SubmissionManager 提交作品…",
+      "success": "提交 #{submissionId} 已创建",
+      "error": "提交失败：{message}",
+      "hashLabel": "查看交易"
+    },
+    "voteSummary": "{{approvals}} 次通过 · {{rejections}} 次拒绝",
+    "heading": "提交 #{{id}}",
+    "submittedBy": "@{{author}} 提交",
+    "timeAgo": "{{distance}}",
+    "summaryTitle": "提交说明",
+    "version": "版本",
+    "approvals": "{{count}} 次通过",
+    "rejections": "{{count}} 次拒绝",
+    "timelineTitle": "时间线",
+    "attachmentsTitle": "交付附件",
+    "attachmentsHint": "查看关联的交付文件",
+    "downloadAll": "下载全部",
+    "attachmentLabel": "附件 #{{index}}",
+    "viewFile": "查看文件",
+    "timeline": {
+      "submitted": "已提交",
+      "latestReview": "最新活动",
+      "guardCheck": "守卫校验",
+      "guardPassed": "满足要求"
+    }
+  },
+  "creation": {
+    "title": "创建新任务",
+    "subtitle": "在链上发布前配置守卫、激励与策略。",
+    "actions": {
+      "prev": "上一步",
+      "next": "下一步",
+      "publish": "发布任务"
+    },
+    "steps": {
+      "basics": "基础信息",
+      "timeline": "时间与奖励",
+      "guards": "守卫配置",
+      "strategy": "采纳策略",
+      "summary": "发布检查"
+    },
+    "validation": {
+      "required": "此字段必填",
+      "number": "请输入有效数字",
+      "positive": "数值需大于 0",
+      "ratio": "请输入 1-100 的百分比",
+      "deadline": "截止时间需至少晚于当前 30 分钟",
+      "guardUnknown": "请选择允许的守卫合约",
+      "strategyUnknown": "请选择允许的策略合约",
+      "strategyLoading": "正在加载策略配置…",
+      "strategyMissing": "无法获取策略配置",
+      "strategyInvalid": "策略配置无效",
+      "tokenUnknown": "请选择允许的代币"
+    },
+    "sections": {
+      "basics": {
+        "title": "任务基础",
+        "description": "告知贡献者打开任务卡时的关键信息。",
+        "fields": {
+          "title": {
+            "label": "任务标题",
+            "placeholder": "简洁概括任务核心"
+          },
+          "category": {
+            "label": "任务类别",
+            "placeholder": "如 研究、创意、运营",
+            "options": {
+              "research": "研究",
+              "development": "开发",
+              "creative": "创意",
+              "growth": "增长",
+              "community": "社区",
+              "operations": "运营",
+              "other": "其他"
+            }
+          },
+          "description": {
+            "label": "任务概览",
+            "placeholder": "说明使命、预期影响与范围"
+          },
+          "requirements": {
+            "label": "交付清单",
+            "placeholder": "列出交付物、格式与评审要求"
+          },
+          "cover": {
+            "label": "封面图 URL",
+            "placeholder": "可选 - 填写图片或 IPFS 链接"
+          }
+        }
+      },
+      "timeline": {
+        "title": "时间与奖励",
+        "description": "设置提交窗口与奖励发放方式。",
+        "fields": {
+          "deadline": {
+            "label": "提交截止时间",
+            "hint": "默认使用 UTC，贡献者会看到本地时间。"
+          },
+          "rewardAmount": {
+            "label": "奖励金额"
+          },
+          "rewardToken": {
+            "label": "奖励资产",
+            "placeholder": "请选择代币"
+          }
+        }
+      },
+      "guards": {
+        "title": "守卫配置",
+        "description": "选择用于控制提交与评审访问的守卫合约。",
+        "selected": "已选择",
+        "generic": {
+          "name": "自定义守卫",
+          "summary": "使用该合约的默认规则。"
+        },
+        "submission": {
+          "title": "提交守卫",
+          "description": "选择贡献者提交作品时需要满足的规则。",
+          "empty": "尚未允许任何提交守卫。",
+          "options": {
+            "none": {
+              "name": "不启用提交守卫",
+              "summary": "只要通过平台基础准入，所有人都可以提交。"
+            },
+            "atlas": {
+              "name": "Atlas 提交守卫",
+              "summary": "要求声誉 ≥50，可容忍 3 次失败提交，不强制类别专长。"
+            }
+          }
+        },
+        "review": {
+          "title": "评审守卫",
+          "description": "选择哪些人可以进行评审并评分。",
+          "empty": "尚未允许任何评审守卫。",
+          "options": {
+            "none": {
+              "name": "不启用评审守卫",
+              "summary": "满足平台基础准入的贡献者都可以参与评审。"
+            },
+            "atlas": {
+              "name": "Atlas 评审守卫",
+              "summary": "要求声誉 ≥60，至少完成 5 次评审，不强制类别专长。"
+            }
+          }
+        }
+      },
+      "preview": {
+        "title": "链上默认配置",
+        "loading": "正在读取守卫配置…",
+        "empty": "该守卫未返回链上默认值。",
+        "error": "无法加载守卫配置：{message}",
+        "apply": "应用默认值",
+        "applied": "已应用",
+        "minReputation": "最低信誉分：{value}",
+        "minCategory": "最低类别分：{value}",
+        "category": "指定类别：{value}",
+        "maxFailed": "最多允许失败提交：{value}",
+        "minSuccess": "最低成功率：{value}%",
+        "minReviews": "最低评审数：{value}",
+        "minAccuracy": "最低准确率：{value}%",
+        "stake": "要求质押：{value}",
+        "allowlist": "白名单地址数：{value}"
+      },
+      "strategy": {
+        "title": "采纳策略",
+        "description": "选择在收到评论后如何判定提交结果。",
+        "selectorLabel": "选择采纳策略合约。",
+        "selected": "已选择",
+        "empty": "尚未允许任何采纳策略。",
+        "generic": {
+          "name": "自定义策略",
+          "summary": "使用所选合约的默认采纳规则。"
+        },
+        "options": {
+          "atlas": {
+            "name": "Atlas 采纳策略",
+            "summary": "要求 ≥3 次评论，赞成率 ≥60% 时采纳，反对率 ≥40% 时移除，7 天后过期。"
+          }
+        },
+        "preview": {
+          "title": "策略预览",
+          "loading": "正在加载链上策略配置…",
+          "empty": "当前策略未返回链上配置。",
+          "error": "读取策略配置失败：{message}",
+          "fallback": "使用部署默认参数（暂未读取到链上配置）。",
+          "metrics": {
+            "minReviews": "最少评审数",
+            "approval": "采纳阈值",
+            "rejection": "移除阈值",
+            "expiration": "有效期窗口",
+            "auto": "自动采纳计时",
+            "autoDisabled": "未启用",
+            "none": "无",
+            "approvalDetail": "{{percentage}}% · 至少 {{count}} 次通过",
+            "rejectionDetail": "{{percentage}}% · 至少 {{count}} 次拒绝"
+          },
+          "inline": {
+            "approval": "{percentage}% (>= {count} 次通过)",
+            "rejection": "{percentage}% (>= {count} 次拒绝)"
+          },
+          "summary": {
+            "approval": "至少需要 {{minReviews}} 次评审，当正向票达到 {{approvalThreshold}}%（≥ {{approvalsRequired}} 次通过）时采纳提交。",
+            "rejection": "当负向票达到 {{rejectionThreshold}}%（≥ {{rejectionsRequired}} 次拒绝）时移除提交。",
+            "expiration": "若超过 {{expirationHours}} 小时未决策，提交将过期。",
+            "auto": "若在 {{autoHours}} 小时内没有评审，将自动采纳。",
+            "autoMissing": "已启用时间触发采纳，但缺少计时配置。",
+            "autoDisabled": "未启用时间采纳，需要评审者投票。"
+          },
+          "issues": {
+            "title": "配置存在风险",
+            "minReviews": "最少评审数必须大于等于 1。",
+            "approvalOutOfRange": "采纳占比需在 1 到 100 之间。",
+            "rejectionOutOfRange": "移除占比需在 0 到 100 之间。",
+            "thresholdOverlap": "采纳与移除占比之和不能超过 100%。",
+            "expirationMissing": "需要设置有效的过期时间窗口。",
+            "autoAdoptionMissing": "启用时间采纳时必须设置计时器。",
+            "autoAdoptionOrder": "自动采纳计时需小于过期时间。"
+          }
+        }
+      },
+      "summary": {
+        "title": "发布检查",
+        "description": "提交前再次确认所有配置。",
+        "agree": "我理解本次操作将锁定奖励直至任务完成。",
+        "review": "检查并发布"
+      }
+    },
+    "connectionRequired": {
+      "title": "需要连接钱包",
+      "connect": "请在 {requiredNetwork} 上连接钱包以继续配置。",
+      "network": "请切换至 {requiredNetwork}。当前网络：{currentNetwork}。"
+    },
+    "preview": {
+      "title": "实时任务预览",
+      "missing": "补全任务基础信息以生成预览。",
+      "untitled": "未命名任务",
+      "descriptionFallback": "添加概览，让贡献者了解任务期望。",
+      "categoryFallback": "类别待定",
+      "rewardFallback": "奖励待定",
+      "deadlineFallback": "尚未设置截止时间",
+      "guardEmpty": "暂未配置守卫要求。",
+      "guardSelected": "合约：{label}",
+      "strategyEmpty": "策略参数尚未填写。",
+      "strategySelected": "策略：{{label}}",
+      "strategyAutoDisabled": "未启用自动采纳",
+      "strategyIssuesFlag": "策略配置需要关注。"
+    },
+    "tx": {
+      "creating": "正在向 TaskManager 提交草稿…",
+      "approving": "正在授权奖励代币额度…",
+      "publishing": "正在发布任务并锁定奖励…",
+      "success": "任务发布成功，任务 ID {taskId}",
+      "error": "交易失败：{message}",
+      "hashLabel": "查看交易"
+    },
+    "success": {
+      "title": "任务已上线",
+      "subtitle": "任务 #{taskId} 已在广场展示。",
+      "view": "查看任务",
+      "createAnother": "继续创建新任务",
+      "redirect": "即将自动跳转…"
+    }
+  },
+  "arbitration": {
+    "title": "仲裁控制台",
+    "subtitle": "跟踪仲裁请求、费用与守卫升级。",
+    "queueTitle": "进行中案例",
+    "metrics": {
+      "open": "待处理案件",
+      "openHint": "待守卫委员会裁决",
+      "fees": "费用池",
+      "feesHint": "累计锁定仲裁费用"
+    },
+    "actions": {
+      "create": "发起仲裁"
+    },
+    "empty": "暂无仲裁记录。",
+    "sheet": {
+      "trigger": "请求仲裁",
+      "title": "提交仲裁申请",
+      "subtitle": "提交证据并缴纳仲裁费用，将该提交升级至仲裁流程。",
+      "evidenceLabel": "证据说明",
+      "evidencePlaceholder": "请描述争议焦点或填写 IPFS 哈希",
+      "depositLabel": "押金金额（{{token}}）",
+      "helper": "请提供充分证据。仲裁通过后押金将退回。",
+      "disabled": "请连接到 {network} 网络后再发起仲裁",
+      "loading": "正在加载仲裁配置…",
+      "submit": "提交仲裁",
+      "status": {
+        "approving": "正在授权仲裁费…",
+        "requesting": "正在提交仲裁请求…",
+        "success": "仲裁 #{id} 已创建",
+        "error": "仲裁失败：{message}"
+      },
+      "error": {
+        "evidence": "请填写仲裁证据。",
+        "insufficientDeposit": "押金需不少于 {amount} {token}。"
+      }
+    },
+    "requester": "发起人 {requester}",
+    "fee": "费用 {amount}",
+    "filters": {
+      "allStatuses": "全部状态",
+      "allTypes": "全部类型"
+    },
+    "detail": {
+      "trigger": "查看详情",
+      "title": "仲裁 #{id}",
+      "subtitle": "提交于 {filedAgo}",
+      "status": "状态",
+      "type": "类型",
+      "requester": "发起人",
+      "target": "目标",
+      "filedAt": "提交时间",
+      "resolvedAt": "完成时间",
+      "deposit": "押金",
+      "evidence": "证据",
+      "evidenceEmpty": "暂无证据信息。",
+      "copy": "复制证据",
+      "copied": "已复制",
+      "subtitleResolved": "已于 {time} 处理"
+    },
+    "types": {
+      "USER_REPUTATION": "用户信誉仲裁",
+      "SUBMISSION_STATUS": "提交状态仲裁",
+      "fallback": "仲裁"
+    }
+  },
+  "analytics": {
+    "title": "治理看板",
+    "subtitle": "监控金库流向、守卫命中率与采纳趋势。",
+    "metrics": {
+      "totalFunds": "锁定资金总额",
+      "totalFundsValue": "180万 USDC",
+      "totalHint": "覆盖所有活跃任务",
+      "guardHit": "守卫命中率",
+      "guardHitValue": "88%",
+      "guardHint": "近 30 天守卫命中情况",
+      "adoption": "采纳成功率",
+      "adoptionValue": "64%",
+      "adoptionHint": "首次评审即采纳的比例"
+    },
+    "trend": {
+      "guard": "守卫信号趋势",
+      "guardHint": "守卫正向结果的 7 天移动平均"
+    },
+    "breakdown": {
+      "title": "奖励分布",
+      "research": {
+        "label": "研究",
+        "value": "42%"
+      },
+      "creative": {
+        "label": "创意",
+        "value": "33%"
+      },
+      "review": {
+        "label": "评审",
+        "value": "25%"
+      }
+    }
+  },
+  "wallet": {
+    "connect": "连接钱包",
+    "title": "选择钱包",
+    "subtitle": "支持 Hermis 主网与 L2 守卫 Rollup。",
+    "disclaimer": "即将跳转至钱包完成签名确认。",
+    "connectorsTitle": "可用钱包",
+    "connectedAs": "已连接 {address}",
+    "network": "网络 {network}",
+    "disconnect": "断开连接",
+    "status": {
+      "connecting": "连接中…",
+      "connected": "已连接",
+      "disconnected": "未连接"
+    },
+    "error": "连接失败，请尝试其他钱包。",
+    "statusBar": {
+      "wrongNetwork": "请切换至 {requiredNetwork}（当前 {currentNetwork}）",
+      "connected": "已连接 · {network}"
+    }
+  },
+  "guards": {
+    "open": "守卫预设",
+    "title": "配置守卫",
+    "subtitle": "在发布前组合提交与评审守卫模块。",
+    "stake": "质押 {stake}"
+  }
+}

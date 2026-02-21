@@ -1,0 +1,869 @@
+{
+  "app": {
+    "name": "Hermis Atlas",
+    "tagline": "On-chain reputation powered collective intelligence"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "tasks": "Tasks",
+    "review": "Review",
+    "market": "Market",
+    "profile": "Profile",
+    "collapse": "Collapse",
+    "expand": "Expand"
+  },
+  "header": {
+    "theme": {
+      "light": "Light mode",
+      "dark": "Dark mode",
+      "short": {
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "toggle": "Toggle theme"
+    },
+    "language": {
+      "label": "Select language",
+      "options": {
+        "en": "EN",
+        "zh": "ZH"
+      },
+      "short": {
+        "en": "EN",
+        "zh": "中文"
+      }
+    },
+    "wallet": {
+      "connect": "conect"
+    },
+    "user": {
+      "profile": "Profile",
+      "logout": "Disconnect",
+      "manageWallet": "Wallet settings"
+    }
+  },
+  "console": {
+    "title": "Administration",
+    "subtitle": "Manage allowlists, guard presets and strategy templates.",
+    "allowlist": {
+      "title": "Allowlist manager",
+      "subtitle": "Approve guard, strategy and reward token contracts before they go live.",
+      "helper": "Enter contract addresses to approve. Removing an address immediately blocks future usage but does not affect existing tasks.",
+      "networkWarning": "Switch to {network} with an authorised administrator wallet to update the allowlist.",
+      "actions": {
+        "addLabel": "Add contract",
+        "allow": "Allow",
+        "remove": "Disable",
+        "pending": "Pending…"
+      },
+      "sections": {
+        "guards": {
+          "title": "Guard contracts",
+          "subtitle": "Submission and review guard controllers allowed for new tasks."
+        },
+        "strategies": {
+          "title": "Strategy contracts",
+          "subtitle": "Adoption and reward strategies that publishers can reference."
+        },
+        "tokens": {
+          "title": "Reward tokens",
+          "subtitle": "ERC20 tokens (or native ETH) unlockable for task rewards."
+        }
+      },
+      "empty": "No approved entries yet. Add a contract to populate the list."
+    }
+  },
+  "landing": {
+    "hero": {
+      "label": "Hermis Atlas",
+      "headline": {
+        "top": "Web3 crowdsourcing",
+        "prefix": "For",
+        "variants": {
+          "one": "global builders",
+          "two": "trustless reviews",
+          "three": "autonomous teams"
+        }
+      },
+      "subheading": "Publish, contribute, review and arbitrate with transparent, composable guard strategies.",
+      "cta": "Explore the app"
+    },
+    "features": {
+      "title": "Designed for trustless collaboration",
+      "subtitle": "Composable guard strategies, transparent reputation and automated workflows keep contributors motivated.",
+      "items": {
+        "modularity": {
+          "title": "Composable guard network",
+          "description": "Mix submission, review and arbitration guard modules to tailor participation rules for every mission."
+        },
+        "reputation": {
+          "title": "Reputation becomes signal",
+          "description": "Soulbound scores, stake levels and category tags give you a verifiable pulse on every contributor."
+        },
+        "automation": {
+          "title": "Autonomous task engines",
+          "description": "Strategy contracts orchestrate deadlines, rewards and escalation so teams stay focused on outcomes."
+        }
+      },
+      "preview": {
+        "title": "On-chain default config",
+        "loading": "Reading guard configuration…",
+        "empty": "This guard returned no on-chain defaults.",
+        "error": "Unable to load guard config: {message}",
+        "apply": "Apply defaults",
+        "applied": "Applied",
+        "minReputation": "Min reputation: {value}",
+        "minCategory": "Min category score: {value}",
+        "category": "Target category: {value}",
+        "maxFailed": "Max permitted failed submissions: {value}",
+        "minSuccess": "Min success rate: {value}%",
+        "minReviews": "Min reviews: {value}",
+        "minAccuracy": "Min accuracy: {value}%",
+        "stake": "Required stake: {value}",
+        "allowlist": "Addresses in allowlist: {value}"
+      }
+    }
+  },
+  "dashboard": {
+    "greeting": "Welcome back",
+    "kpi": {
+      "activeTasks": "Active tasks",
+      "pendingReviews": "Pending reviews",
+      "upcomingDeadlines": "Upcoming deadlines"
+    },
+    "metrics": {
+      "totalTasks": "Total tasks",
+      "totalSubmissions": "Total submissions",
+      "totalUsers": "Total contributors",
+      "activeTasks": "Active tasks",
+      "pendingArbitrations": "Pending arbitrations",
+      "totalRewards": "Rewards distributed"
+    },
+    "activity": {
+      "tasksTitle": "Active opportunities",
+      "viewAll": "View all",
+      "emptyTasks": "No tasks available yet",
+      "uncategorized": "Uncategorized"
+    },
+    "shortcuts": {
+      "createTask": "Create task",
+      "claimRewards": "Claim rewards",
+      "submitAppeal": "Submit arbitration"
+    },
+    "notifications": "Updates",
+    "reviewQueuesEmpty": "No submissions waiting for review",
+    "reviewQueuesNoGuard": "No guard configured",
+    "pendingRewardsLabel": "Pending rewards",
+    "pendingRewardsSubtitle": "Last synced at",
+    "shortcutsTitle": "Shortcuts",
+    "reviewQueuesSubtitle": "Top assignments in guard scope",
+    "kpiTrend": "{trend}%"
+  },
+  "tasks": {
+    "title": "Task plaza",
+    "subtitle": "Discover on-chain tasks, guard requirements and rewards.",
+    "filters": {
+      "searchPlaceholder": "Search tasks",
+      "status": "Status",
+      "category": "Category",
+      "reward": "Reward",
+      "guards": "Guards"
+    },
+    "create": "Create task"
+  },
+  "task": {
+    "guards": "Guard requirements",
+    "submissionGuard": "Submission guard",
+    "reviewGuard": "Review guard",
+    "strategy": "Adoption strategy",
+    "stats": "Submission stats",
+    "submissions": "Submissions",
+    "actions": {
+      "submit": "Submit work",
+      "withdraw": "Withdraw funds"
+    },
+    "detail": {
+      "rewardLabel": "Reward",
+      "deadlineLabel": "Deadline",
+      "meta": "Realtime submission activity",
+      "minReviews": "Minimum reviews",
+      "adoptRatio": "Adoption ratio",
+      "autoAdopt": "Auto adopt",
+      "statsTotal": "Total",
+      "statsActive": "Active",
+      "statsAdopted": "Adopted",
+      "statsRemoved": "Removed",
+      "requirements": "Requirements",
+      "requirementsEmpty": "No additional requirements listed.",
+      "pendingTitle": "Task indexing in progress",
+      "pendingHeadline": "Task #{{id}}",
+      "pendingDescription": "Newly published tasks may take a few moments to appear. Refresh shortly to continue.",
+      "pendingRefresh": "Refresh",
+      "pendingBack": "Back to tasks",
+      "rejectionRatio": "Rejection threshold",
+      "expirationLabel": "Expiration window",
+      "strategyLoading": "Reading on-chain strategy configuration…",
+      "strategyError": "Unable to load strategy: {{message}}",
+      "strategyFallback": "Displaying default deployment parameters while the chain syncs.",
+      "strategyApprovalSummary": "{{threshold}}% · ≥ {{count}} approvals",
+      "strategyRejectionSummary": "{{threshold}}% · ≥ {{count}} rejections",
+      "strategyExpirationSummary": "{{hours}}h without a decision",
+      "strategyAutoEnabled": "Auto-adopts after {{hours}}h if no reviews arrive.",
+      "strategyAutoDisabled": "Manual review only — reviewer votes decide outcomes."
+    },
+    "guard": {
+      "reputation": "Reputation ≥ {value}",
+      "stake": "Stake ≥ {value} ETH",
+      "categories": "Categories: {categories}",
+      "allowlist": "Allowlist: {addresses}",
+      "categoryScore": "Category score ≥ {value}",
+      "requiredCategory": "Required category: {category}",
+      "minReviewCount": "Minimum reviews: {count}",
+      "minAccuracyRate": "Accuracy ≥ {value}%",
+      "maxFailedSubmissions": "Failed submissions ≤ {count}",
+      "minSuccessRate": "Success rate ≥ {value}%",
+      "addressLabel": "Guard address",
+      "none": "Not configured",
+      "open": "Guard open — no additional restrictions.",
+      "loading": "Loading guard configuration…",
+      "error": "Unable to load guard configuration: {message}"
+    }
+  },
+  "review": {
+    "title": "Review control center",
+    "subtitle": "Review precisely, earn guard reputation.",
+    "queues": "Review queues",
+    "accuracy": "Accuracy",
+    "history": "History",
+    "cta": {
+      "startAuto": "Start auto-assign",
+      "review": "Review"
+    },
+    "metrics": {
+      "accuracy": "Accuracy",
+      "accuracyHint": "Last 30 reviews",
+      "disputes": "Disputes defended",
+      "disputesHint": "With +42 reputation",
+      "rewards": "Queued rewards",
+      "rewardsHint": "Pending settlement"
+    },
+    "queueSubtitle": "Select guard-matched submissions",
+    "sheet": {
+      "title": "Submit review",
+      "subtitle": "Assess the submission outcome and share your reasoning.",
+      "outcome": "Review outcome",
+      "approve": "Approve",
+      "reject": "Reject",
+      "reason": "Reasoning",
+      "reasonPlaceholder": "Highlight strengths, risks or policy concerns",
+      "strategyTitle": "Adoption thresholds",
+      "strategyLoading": "Loading adoption strategy...",
+      "strategyError": "Unable to load strategy: {message}",
+      "strategyEmpty": "No strategy information available.",
+      "strategySummary": {
+        "minReviews": "Requires {value} total reviews before final decision.",
+        "approval": "Adopt with ≥ {value} approvals ({threshold}%).",
+        "rejection": "Remove with ≥ {value} rejections ({threshold}%).",
+        "expiration": "Expires automatically after {hours}h if unresolved.",
+        "auto": "Auto-adopts after {hours}h when no reviews arrive."
+      },
+      "guardOpen": "Review guard open — anyone can review.",
+      "guardConnect": "Connect a wallet to check review guard access.",
+      "guardNetwork": "Switch to {network} to validate guard access.",
+      "guardPrompt": "Open this sheet to run guard validation.",
+      "guardLoading": "Validating review guard requirements…",
+      "guardError": "Unable to validate guard: {message}",
+      "guardDenied": "Review guard requirements not met.",
+      "guardReady": "Guard check passed — you're cleared to review.",
+      "guardIdle": "Guard status unavailable. Retry shortly.",
+      "guardBlocked": "Review guard denied access.",
+      "guardChecklist": "Standard guard",
+      "submit": "Send review",
+      "disabled": "Connect wallet on {network} to review"
+    },
+    "tx": {
+      "reviewing": "Submitting review to SubmissionManager…",
+      "success": "Review #{reviewId} recorded",
+      "error": "Review failed: {message}"
+    },
+    "filters": {
+      "all": "All",
+      "submitted": "Submitted",
+      "underReview": "Under review",
+      "under_review": "Under review"
+    }
+  },
+  "market": {
+    "title": "Strategy & rewards",
+    "subtitle": "Explore guard strategies, SBT tiers and incentive pools.",
+    "trendingTitle": "Trending task vaults",
+    "sbtPerkLabel": "Perks",
+    "sbtTiers": {
+      "atlas1": {
+        "name": "Atlas I",
+        "requirement": "Reputation ≥ 420",
+        "perks": ["Access to submission guards", "2% staking boost"]
+      },
+      "atlas2": {
+        "name": "Atlas II",
+        "requirement": "Reputation ≥ 620",
+        "perks": ["Review guard priority", "5% staking boost", "Arbitration fee rebate"]
+      },
+      "atlas3": {
+        "name": "Atlas III",
+        "requirement": "Reputation ≥ 820",
+        "perks": ["Strategy authoring rights", "10% staking boost", "Guard publishing"]
+      }
+    },
+    "publisher": "Publisher {address}",
+    "trend": "Reward trend",
+    "rewardDistribution": "Reward distribution",
+    "flow": {
+      "title": "Reward flow",
+      "subtitle": "Visualise how locked rewards and fees move across roles.",
+      "contributors": "Creators",
+      "reviewers": "Reviewers"
+    },
+    "categoryLeaderboard": {
+      "title": "Category leaderboard",
+      "subtitle": "Top mission categories by locked rewards.",
+      "count": "{{value}} tasks",
+      "empty": "No category data yet."
+    },
+    "guardHeatmap": "Guard requirement heatmap",
+    "heatmapEmpty": "No guard data available",
+    "metrics": {
+      "totalRewards": "Total rewards",
+      "totalFees": "Total fees",
+      "adoptionRate": "Adoption rate"
+    }
+  },
+  "profile": {
+    "title": "Identity assets",
+    "subtitle": "Manage SBT, staking positions and guard settings.",
+    "sections": {
+      "reputation": "Reputation",
+      "stake": "Stake management",
+      "categories": "Category scores",
+      "admin": "Admin tools",
+      "score": "Score",
+      "sbt": "SBT",
+      "staked": "Staked"
+    },
+    "actions": {
+      "stakeMore": "Stake more",
+      "unstake": "Unstake",
+      "openConsole": "Open console",
+      "initializeSbt": "Initialize SBT"
+    },
+    "states": {
+      "NORMAL": "Normal",
+      "AT_RISK": "At risk",
+      "BLACKLISTED": "Blacklisted",
+      "UNINITIALIZED": "Uninitialized"
+    },
+    "categoriesEmpty": "No category scores yet.",
+    "stake": {
+      "title": "Increase staking position",
+      "subtitle": "Approve and deposit the staking token to increase your reputation weight.",
+      "amountLabel": "Amount to stake",
+      "helper": "Staked funds remain locked until you request an unstake.",
+      "disabled": "Connect wallet on {network} to stake.",
+      "approving": "Approving token allowance…",
+      "staking": "Submitting stake transaction…",
+      "success": "Stake transaction confirmed",
+      "error": "Stake failed: {message}",
+      "submit": "Stake",
+      "errors": {
+        "amount": "Enter a valid amount"
+      }
+    },
+    "unstake": {
+      "title": "Request unstake",
+      "subtitle": "Begin the exit flow to unlock your staked funds.",
+      "helper": "Unstake will trigger the protocol cooling period before withdrawal.",
+      "disabled": "Connect wallet on {network} to unstake.",
+      "processing": "Submitting unstake request…",
+      "success": "Unstake request submitted",
+      "error": "Unstake failed: {message}",
+      "submit": "Request unstake"
+    },
+    "initialize": {
+      "pending": "Initializing identity…",
+      "submitting": "Initializing…",
+      "success": "Identity initialized successfully",
+      "error": "Initialization failed: {message}",
+      "network": "Switch to {network} to initialize",
+      "accountMismatch": "Connect the matching wallet before initializing"
+    }
+  },
+  "prototype": {
+    "title": "Hermis Atlas Prototype",
+    "subtitle": "Preview all core screens in a single scrollable sheet.",
+    "label": "Screen"
+  },
+  "common": {
+    "status": {
+      "draft": "Draft",
+      "published": "Published",
+      "active": "Active",
+      "completed": "Completed",
+      "expired": "Expired",
+      "cancelled": "Cancelled",
+      "submitted": "Submitted",
+      "underReview": "Under review",
+      "normal": "Normal",
+      "adopted": "Adopted",
+      "removed": "Removed",
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "dismissed": "Dismissed"
+    },
+    "actions": {
+      "reset": "Reset",
+      "close": "Close",
+      "refresh": "Refresh"
+    },
+    "labels": {
+      "due": "Due",
+      "days": "days",
+      "deadline": "Deadline"
+    },
+    "empty": {
+      "noTasks": "No tasks match the current filters.",
+      "noSubmissions": "No submissions yet."
+    },
+    "loading": "Loading…"
+  },
+  "submission": {
+    "sheet": {
+      "title": "Submit your work",
+      "subtitle": "Provide an IPFS/Arweave hash or external link for reviewers.",
+      "contentLabel": "Delivery reference",
+      "contentPlaceholder": "ipfs://... or https://...",
+      "guardChecklist": "Guard checklist",
+      "guardHint": "Ensure you meet guard requirements before submitting.",
+      "guardOpen": "Submission guard open — anyone can contribute.",
+      "guardConnect": "Connect a wallet to verify submission guard access.",
+      "guardNetwork": "Switch to {network} to validate guard access.",
+      "guardPrompt": "Open this sheet to run guard validation.",
+      "guardLoading": "Checking submission guard requirements…",
+      "guardError": "Unable to validate guard: {message}",
+      "guardDenied": "Submission guard requirements not met.",
+      "guardReady": "Guard check passed — you're cleared to submit.",
+      "guardIdle": "Guard status unavailable. Retry in a moment.",
+      "guardBlocked": "Submission guard denied access.",
+      "submit": "Send submission",
+      "disabled": "Connect wallet on {network} to submit"
+    },
+    "edit": {
+      "trigger": "Update submission",
+      "title": "Update your delivery",
+      "subtitle": "Replace the content hash or external reference for reviewers.",
+      "contentLabel": "New delivery reference",
+      "contentPlaceholder": "ipfs://... or https://...",
+      "submit": "Save update",
+      "disabled": "Connect wallet on {network} to update",
+      "hint": "Updates remain open until the submission is adopted or removed.",
+      "guardOpen": "Submission guard open — anyone can update.",
+      "guardConnect": "Connect a wallet to validate guard access before updating.",
+      "guardNetwork": "Switch to {network} to re-check guard access.",
+      "guardPrompt": "Open this sheet to run guard checks before updating.",
+      "guardLoading": "Checking submission guard access…",
+      "guardError": "Unable to validate guard: {message}",
+      "guardDenied": "Submission guard requirements not met for updates.",
+      "guardReady": "Guard check passed — you can update this submission.",
+      "guardIdle": "Guard status unavailable. Try again shortly.",
+      "guardBlocked": "Submission guard blocked the update.",
+      "tx": {
+        "submitting": "Updating submission on-chain…",
+        "success": "Submission updated to version {version}",
+        "error": "Update failed: {message}"
+      }
+    },
+    "tx": {
+      "submitting": "Submitting work to SubmissionManager…",
+      "success": "Submission #{submissionId} created",
+      "error": "Submission failed: {message}",
+      "hashLabel": "View transaction"
+    },
+    "voteSummary": "{{approvals}} approvals · {{rejections}} rejections",
+    "heading": "Submission #{{id}}",
+    "submittedBy": "Submitted by {{author}}",
+    "timeAgo": "{{distance}}",
+    "summaryTitle": "Submission summary",
+    "version": "Version",
+    "approvals": "{{count}} approvals",
+    "rejections": "{{count}} rejections",
+    "timelineTitle": "Timeline",
+    "attachmentsTitle": "Attachments",
+    "attachmentsHint": "Review associated delivery files",
+    "downloadAll": "Download all",
+    "attachmentLabel": "Attachment #{{index}}",
+    "viewFile": "View file",
+    "timeline": {
+      "submitted": "Submitted",
+      "latestReview": "Latest activity",
+      "guardCheck": "Guard check",
+      "guardPassed": "Requirements met"
+    }
+  },
+  "creation": {
+    "title": "Launch a new task",
+    "subtitle": "Compose guards, rewards and strategies before publishing on-chain.",
+    "actions": {
+      "prev": "Back",
+      "next": "Next",
+      "publish": "Publish task"
+    },
+    "steps": {
+      "basics": "Basics",
+      "timeline": "Timeline & rewards",
+      "guards": "Guards",
+      "strategy": "Strategy",
+      "summary": "Summary"
+    },
+    "validation": {
+      "required": "Required field",
+      "number": "Enter a valid number",
+      "positive": "Value must be greater than zero",
+      "ratio": "Use a percentage between 1 and 100",
+      "deadline": "Deadline must be at least 30 minutes in the future",
+      "guardUnknown": "Select a listed guard contract",
+      "strategyUnknown": "Select a listed strategy",
+      "strategyLoading": "Loading strategy configuration…",
+      "strategyMissing": "Strategy configuration unavailable",
+      "strategyInvalid": "Strategy configuration is invalid",
+      "tokenUnknown": "Select an allowed token"
+    },
+    "sections": {
+      "basics": {
+        "title": "Mission basics",
+        "description": "Define what contributors should expect when they open the card.",
+        "fields": {
+          "title": {
+            "label": "Task title",
+            "placeholder": "Write a concise headline"
+          },
+          "category": {
+            "label": "Category",
+            "placeholder": "Select a category",
+            "options": {
+              "research": "Research",
+              "development": "Development",
+              "creative": "Creative",
+              "growth": "Growth",
+              "community": "Community",
+              "operations": "Operations",
+              "other": "Other"
+            }
+          },
+          "description": {
+            "label": "Overview",
+            "placeholder": "Explain the mission, expected impact and scope"
+          },
+          "requirements": {
+            "label": "Deliverable checklist",
+            "placeholder": "List artefacts, formats, review expectations"
+          },
+          "cover": {
+            "label": "Cover image URL",
+            "placeholder": "Optional - paste an image or IPFS link"
+          }
+        }
+      },
+      "timeline": {
+        "title": "Timeline & rewards",
+        "description": "Set the submission window and how contributors will be paid.",
+        "fields": {
+          "deadline": {
+            "label": "Submission deadline",
+            "hint": "UTC by default. Contributors will see the localized time."
+          },
+          "rewardAmount": {
+            "label": "Reward amount"
+          },
+          "rewardToken": {
+            "label": "Reward asset",
+            "placeholder": "ETH"
+          }
+        }
+      },
+      "guards": {
+        "title": "Guard configuration",
+        "description": "Choose which allowlisted guard contracts control submissions and reviews.",
+        "selected": "Selected",
+        "generic": {
+          "name": "Custom guard",
+          "summary": "Uses the selected contract's default rules."
+        },
+        "submission": {
+          "title": "Submission guard",
+          "description": "Select how contributors qualify to submit work.",
+          "empty": "No submission guards have been allowlisted yet.",
+          "options": {
+            "none": {
+              "name": "No submission guard",
+              "summary": "Open to any contributor who meets the global platform requirements."
+            },
+            "atlas": {
+              "name": "Atlas Submission Guard",
+              "summary": "Requires ≥50 reputation and permits up to 3 failed submissions. No category expertise required."
+            }
+          }
+        },
+        "review": {
+          "title": "Review guard",
+          "description": "Select who can review and score submissions.",
+          "empty": "No review guards have been allowlisted yet.",
+          "options": {
+            "none": {
+              "name": "No review guard",
+              "summary": "Any contributor can review as long as they pass the baseline access check."
+            },
+            "atlas": {
+              "name": "Atlas Review Guard",
+              "summary": "Requires ≥60 reputation and at least 5 completed reviews. No category expertise required."
+            }
+          }
+        }
+      },
+      "preview": {
+        "title": "On-chain default config",
+        "loading": "Reading guard configuration…",
+        "empty": "This guard returned no on-chain defaults.",
+        "error": "Unable to load guard config: {message}",
+        "apply": "Apply defaults",
+        "applied": "Applied",
+        "minReputation": "Min reputation: {value}",
+        "minCategory": "Min category score: {value}",
+        "category": "Target category: {value}",
+        "maxFailed": "Max permitted failed submissions: {value}",
+        "minSuccess": "Min success rate: {value}%",
+        "minReviews": "Min reviews: {value}",
+        "minAccuracy": "Min accuracy: {value}%",
+        "stake": "Required stake: {value}",
+        "allowlist": "Addresses in allowlist: {value}"
+      },
+      "strategy": {
+        "title": "Adoption strategy",
+        "description": "Select how a submission is judged once reviews arrive.",
+        "selectorLabel": "Choose an adoption strategy contract.",
+        "selected": "Selected",
+        "empty": "No adoption strategies have been allowlisted yet.",
+        "generic": {
+          "name": "Custom strategy",
+          "summary": "Uses the selected contract's default adoption rules."
+        },
+        "options": {
+          "atlas": {
+            "name": "Atlas Adoption Strategy",
+            "summary": "Requires ≥3 reviews, adopts at ≥60% approvals, removes at ≥40% rejections, expires after 7 days."
+          }
+        },
+        "preview": {
+          "title": "Strategy preview",
+          "loading": "Loading strategy configuration…",
+          "empty": "No on-chain configuration returned for this strategy.",
+          "error": "Unable to read strategy config: {message}",
+          "fallback": "Using default deployment parameters (on-chain config unavailable).",
+          "metrics": {
+            "minReviews": "Minimum reviews",
+            "approval": "Acceptance threshold",
+            "rejection": "Rejection threshold",
+            "expiration": "Expiration window",
+            "auto": "Auto-adopt timer",
+            "autoDisabled": "Disabled",
+            "none": "None",
+            "approvalDetail": "{{percentage}}% · ≥ {{count}} approvals",
+            "rejectionDetail": "{{percentage}}% · ≥ {{count}} rejections"
+          },
+          "inline": {
+            "approval": "{percentage}% (>= {count} approvals)",
+            "rejection": "{percentage}% (>= {count} rejections)"
+          },
+          "summary": {
+            "approval": "Requires at least {{minReviews}} reviews and adopts when {{approvalThreshold}}% positive (≥ {{approvalsRequired}} approvals).",
+            "rejection": "Removes when {{rejectionThreshold}}% negative (≥ {{rejectionsRequired}} rejections).",
+            "expiration": "Submissions expire after {{expirationHours}}h without a decision.",
+            "auto": "Auto-adopts after {{autoHours}}h if no reviews arrive.",
+            "autoMissing": "Time-based adoption is enabled but missing a timer.",
+            "autoDisabled": "Time-based adoption is disabled; reviewer votes decide outcomes."
+          },
+          "issues": {
+            "title": "Configuration needs attention",
+            "minReviews": "Minimum reviews must be at least 1.",
+            "approvalOutOfRange": "Acceptance ratio must be between 1 and 100.",
+            "rejectionOutOfRange": "Rejection ratio must be between 0 and 100.",
+            "thresholdOverlap": "Acceptance and rejection ratios cannot add up to more than 100%.",
+            "expirationMissing": "Expiration window must be greater than zero.",
+            "autoAdoptionMissing": "Time-based adoption requires a timer when enabled.",
+            "autoAdoptionOrder": "Auto-adopt timer must be shorter than the expiration window."
+          }
+        }
+      },
+      "summary": {
+        "title": "Launch checklist",
+        "description": "Review every configuration before sending the transaction.",
+        "agree": "I understand this action will lock the configured rewards until completion.",
+        "review": "Review & publish"
+      }
+    },
+    "preview": {
+      "title": "Live task preview",
+      "missing": "Add mission basics to populate the preview.",
+      "untitled": "Untitled task",
+      "descriptionFallback": "Add an overview so contributors know what to expect.",
+      "categoryFallback": "Category pending",
+      "rewardFallback": "Reward pending",
+      "deadlineFallback": "Deadline not set",
+      "guardEmpty": "No guard requirements configured yet.",
+      "guardSelected": "Contract: {label}",
+      "strategyEmpty": "Strategy parameters pending.",
+      "strategySelected": "Strategy: {{label}}",
+      "strategyAutoDisabled": "Auto-adopt disabled",
+      "strategyIssuesFlag": "Strategy configuration requires attention."
+    },
+    "tx": {
+      "creating": "Sending task draft to TaskManager…",
+      "approving": "Approving reward token allowance…",
+      "publishing": "Publishing task and locking rewards…",
+      "success": "Task published successfully. Task ID {taskId}",
+      "error": "Transaction failed: {message}",
+      "hashLabel": "View transaction"
+    },
+    "success": {
+      "title": "Task is live",
+      "subtitle": "Task #{taskId} is now visible in the plaza.",
+      "view": "View task",
+      "createAnother": "Create another task",
+      "redirect": "Redirecting automatically…"
+    }
+  },
+  "arbitration": {
+    "title": "Arbitration desk",
+    "subtitle": "Track disputes, fees and guard escalations.",
+    "queueTitle": "Active cases",
+    "metrics": {
+      "open": "Open cases",
+      "openHint": "Awaiting guardian council decision",
+      "fees": "Fee pool",
+      "feesHint": "Total arbitration fees locked"
+    },
+    "actions": {
+      "create": "File arbitration"
+    },
+    "empty": "No arbitration requests yet.",
+    "sheet": {
+      "trigger": "Request arbitration",
+      "title": "Dispute submission status",
+      "subtitle": "Post evidence and deposit the arbitration fee to escalate this submission.",
+      "evidenceLabel": "Evidence reference",
+      "evidencePlaceholder": "Summarize the dispute rationale or reference an IPFS hash",
+      "depositLabel": "Deposit amount ({{token}})",
+      "helper": "Provide clear evidence. Deposits are refunded if the arbitration succeeds.",
+      "disabled": "Connect wallet on {network} to request arbitration",
+      "loading": "Loading arbitration requirements…",
+      "submit": "Submit request",
+      "status": {
+        "approving": "Approving arbitration fee allowance…",
+        "requesting": "Submitting arbitration request…",
+        "success": "Arbitration #{id} created",
+        "error": "Arbitration failed: {message}"
+      },
+      "error": {
+        "evidence": "Evidence is required.",
+        "insufficientDeposit": "Deposit must be at least {amount} {token}."
+      }
+    },
+    "requester": "Requester {requester}",
+    "fee": "Fee {amount}",
+    "filters": {
+      "allStatuses": "All statuses",
+      "allTypes": "All types"
+    },
+    "detail": {
+      "trigger": "View details",
+      "title": "Arbitration #{id}",
+      "subtitle": "Filed {filedAgo}",
+      "status": "Status",
+      "type": "Type",
+      "requester": "Requester",
+      "target": "Target",
+      "filedAt": "Filed at",
+      "resolvedAt": "Resolved at",
+      "deposit": "Deposit",
+      "evidence": "Evidence",
+      "evidenceEmpty": "No evidence provided.",
+      "copy": "Copy evidence",
+      "copied": "Copied",
+      "subtitleResolved": "Resolved {time}"
+    },
+    "types": {
+      "USER_REPUTATION": "User reputation",
+      "SUBMISSION_STATUS": "Submission appeal",
+      "fallback": "Arbitration"
+    }
+  },
+  "analytics": {
+    "title": "Gov dashboard",
+    "subtitle": "Monitor treasury flows, guard efficacy and adoption rate.",
+    "metrics": {
+      "totalFunds": "Total funds locked",
+      "totalFundsValue": "1.8M USDC",
+      "totalHint": "Across all active tasks",
+      "guardHit": "Guard hit rate",
+      "guardHitValue": "88%",
+      "guardHint": "Accurate guard triggers over 30 days",
+      "adoption": "Adoption success",
+      "adoptionValue": "64%",
+      "adoptionHint": "Submissions accepted on first review"
+    },
+    "trend": {
+      "guard": "Guard signal trend",
+      "guardHint": "7-day moving average of positive guard outcomes"
+    },
+    "breakdown": {
+      "title": "Rewards distribution",
+      "research": {
+        "label": "Research",
+        "value": "42%"
+      },
+      "creative": {
+        "label": "Creative",
+        "value": "33%"
+      },
+      "review": {
+        "label": "Review",
+        "value": "25%"
+      }
+    }
+  },
+  "wallet": {
+    "connect": "Connect wallet",
+    "title": "Select wallet",
+    "subtitle": "Supports Hermis mainnet and L2 guard rollups.",
+    "disclaimer": "You will be redirected to the wallet for signature confirmation.",
+    "connectorsTitle": "Available wallets",
+    "connectedAs": "Connected as {address}",
+    "network": "Network {network}",
+    "disconnect": "Disconnect",
+    "status": {
+      "connecting": "Connecting…",
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    },
+    "error": "Connection failed. Try another wallet.",
+    "statusBar": {
+      "wrongNetwork": "Network error",
+      "connected": "Connected · {network}"
+    }
+  },
+  "guards": {
+    "open": "Guard presets",
+    "title": "Configure guards",
+    "subtitle": "Mix submission and review guard modules before launch.",
+    "stake": "Stake {stake}"
+  }
+}
